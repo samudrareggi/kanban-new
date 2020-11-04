@@ -1,0 +1,188 @@
+.app{
+  width: 95%;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.container-app{
+  width: 95%;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+#navtext {
+  font-size: larger;
+  font-weight: 600;
+  font-family: sans-serif;
+}
+
+.board{
+  height: 80vh;
+}
+
+.card-header:first-child{
+  border-radius: 10px 10px 0px 0px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.card{
+  border-radius: 10px;
+}
+
+.card:hover{
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
+
+.add-task:hover{
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+}
+
+.containerItem{
+  padding: 10px;
+}
+
+.hide{
+  display: none;
+}
+
+.card-body:hover .hide {
+  display: block;
+}
+
+.card-text{
+  margin: 0;
+  padding: 0;
+}
+
+.fa{
+  padding-left: 10px;
+}
+
+/* Landing */
+.containerLanding {
+  margin: auto;
+}
+
+.frame {
+  height: 500px;
+  width: 430px;
+  background: rgba(255, 255, 255, .45);
+  margin: auto;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  overflow: hidden;
+  transition: all .5s ease
+}
+
+.nav {
+  width: 100%;
+  height: 100px;
+  padding-top: 40px;
+  opacity: 1;
+  transition: all .5s ease
+}
+
+.nav-up {
+  transform: translateY(-100px);
+  opacity: 0
+}
+
+li {
+  padding-left: 10px;
+  font-size: 18px;
+  display: inline;
+  text-align: left;
+  text-transform: uppercase;
+  padding-right: 10px;
+  color: green
+}
+
+.signin-active a {
+  padding-bottom: 10px;
+  color: green;
+  text-decoration: none;
+  border-bottom: solid 2px green;
+  transition: all .25s ease;
+  cursor: pointer
+}
+
+.signin-inactive a {
+  padding-bottom: 0;
+  color: rgba(255, 255, 255, .3);
+  text-decoration: none;
+  border-bottom: none;
+  cursor: pointer
+}
+
+.signup-active a {
+  padding-bottom: 10px;
+  color: green;
+  text-decoration: none;
+  border-bottom: solid 2px green;
+  transition: all .25s ease;
+  cursor: pointer
+}
+
+.signup-inactive a {
+  padding-bottom: 0;
+  color: rgba(255, 255, 255, .3);
+  text-decoration: none;
+  border-bottom: none;
+  cursor: pointer
+}
+
+.form-signin {
+  width: 430px;
+  height: 375px;
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 37px;
+  padding-right: 37px;
+  padding-top: 10px;
+  transition: opacity .5s ease, transform .5s ease
+}
+
+.form-signin-left {
+  transform: translateX(-400px);
+  opacity: .0
+}
+
+.form-signup {
+  width: 430px;
+  height: 375px;
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 37px;
+  padding-right: 37px;
+  padding-top: 10px;
+  position: relative;
+  top: -375px;
+  left: 400px;
+  opacity: 0;
+  transition: all .5s ease
+}
+
+.form-signup-left {
+  transform: translateX(-399px);
+  opacity: 1
+}
+
+.form-signin input,
+.form-signup input {
+  color: black;
+  font-size: 13px
+}
+
+.form-styling {
+  width: 100%;
+  height: 35px;
+  padding-left: 15px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, .2)
+}
+
+.kanbanImg{
+  width: 100%;
+}
