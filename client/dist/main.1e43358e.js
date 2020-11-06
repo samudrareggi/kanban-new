@@ -19591,7 +19591,7 @@ var _axios = _interopRequireDefault(require("axios"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var instance = _axios.default.create({
-  baseURL: "http://localhost:3000"
+  baseURL: "https://kanban-rs.herokuapp.com"
 });
 
 var _default = instance;

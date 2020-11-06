@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       params: {
-        client_id: "646679172615-5d22ugthjbnhr9b039k8e6n0gqgkr5j5.apps.googleusercontent.com"
+        client_id: "583047327634-horjov6cbnp0lk1fngee7t3fihj5g3m5.apps.googleusercontent.com"
       },
       renderParams: {
         width: 250,
