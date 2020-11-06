@@ -50,8 +50,8 @@ export default {
     return {
       title: this.task.title,
       description: this.task.description,
-      taskId: `#addTaskModal${this.task.id}`,
-      taskModal: `addTaskModal${this.task.id}`,
+      taskId: `#editTaskModal${this.task.id}`,
+      taskModal: `editTaskModal${this.task.id}`,
     }
   },
   methods: {
@@ -64,7 +64,13 @@ export default {
         description: this.description,
         id: this.task.id
       }
+      this.clearForm
       this.$emit("requestEditTask", payload)
+      $(this.taskId).modal("hide")
+    },
+    clearForm() {
+      this.title = ""
+      this.description = ""
     }
   }
 }

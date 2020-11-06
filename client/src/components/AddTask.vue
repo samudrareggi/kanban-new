@@ -45,7 +45,7 @@ export default {
     return {
       title: "",
       description: "",
-      category: this.addCategory.name
+      category: this.addCategory.id
     }
   },
   methods: {
@@ -53,9 +53,15 @@ export default {
       const payload = {
         title: this.title,
         description: this.description,
-        category: this.category.toLowerCase()
+        CategoryId: this.category
       }
+      this.clearForm()
       this.$emit("requestAddTask", payload)
+      $(`#addTaskModal${this.category}`).modal("hide")
+    },
+    clearForm() {
+      this.title = ""
+      this.description = ""
     }
   }
 }

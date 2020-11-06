@@ -1,8 +1,8 @@
 <template>
   <div class="col">
-    <div class="card mt-4">
-      <div class="card-header bg-danger">
-        {{ category.name }}
+    <div style="background: rgba(255, 255, 255, 0.25);" class="card mt-4">
+      <div class="card-header bg-secondary">
+        {{ category.name }} <a style="color:black" @click.prevent="deleteCat" href=""><i class="fa fa-trash"></i></a>
       </div>
       <div class="scrollable">
         <ul>
@@ -50,14 +50,21 @@ export default {
     deleteTask(payload){
       this.$emit("deleteTask", payload)
     },
+    deleteCat(){
+      const payload = {
+        id: this.category.id
+      }
+      this.$emit("deleteCat", payload)
+    },
     onMove(event){
       this.currentId = event.draggedContext.element.id
-      this.updatedCategory = event.relatedContext.component.$attrs.category.name
+      this.updatedCategory = event.relatedContext.component.$attrs.category.id
+      console.log(event)
     },
     updateCategory(){
       const payload = {
         id: this.currentId,
-        category: this.updatedCategory.toLowerCase()
+        CategoryId: this.updatedCategory
       }
       this.$emit("updateCategory", payload)
     },
@@ -67,7 +74,7 @@ export default {
   },
   computed: {
     taskByCategory(){
-      return this.tasks.filter(task => task.category === this.category.name.toLowerCase())
+      return this.tasks.filter(task => task.CategoryId === this.category.id)
     }
   }
 }

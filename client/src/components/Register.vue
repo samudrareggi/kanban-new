@@ -22,7 +22,9 @@
       Password
     </label>
     <input v-model="password" required type="password" class="form-styling">
-    <button type="submit" class="btn btn-success mt-2">Register</button>
+    <div class="row justify-content-center">
+      <button type="submit" class="btn btn-success mt-2">Register</button>
+    </div>
   </form>
 </template>
 
@@ -43,8 +45,14 @@ export default {
         email: this.email,
         password: this.password,
       }
+      this.clearForm()
       this.$emit("requestRegister", payload)
     },
+    clearForm() {
+      this.name = ""
+      this.email = ""
+      this.password = ""
+    }
   },
 }
 </script>

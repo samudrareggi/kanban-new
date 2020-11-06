@@ -1,24 +1,41 @@
-body{
+.landing{
+  background-image: url("https://lh3.googleusercontent.com/proxy/3O7LVqb7acl0OB1oESvJq2RZvTk9biyjXAG6itUBT_olPhh57TjNrX_y3kshX26ct-ls4-0R3FRP7sFsrOjge5HqFqWeZ-QwszuSheo61_7NWjwqMKqsu-KgQpHBzYPOG8vzXdTYN4XsS5H5luKJ-HBV5gfMdJnAIE-cTYh3lys1KsKWOZV78fd_O31Vw305Nk6VgyfMg1qbuKuY-iMZ9vi2JftwN_ef8xuDlg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body {
   background-image: url("https://cdn.shopify.com/s/files/1/0285/1316/products/m1906_1s_White-Washed-Brick-Wall-Mural-WallsNeedLove_For-Interior-Walls-9a.jpg?v=1586014100");
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .app{
   width: 95%;
-  margin: auto;
   box-sizing: border-box;
 }
 
 .container-app{
   /* width: 95%; */
-  margin: auto;
   box-sizing: border-box;
+}
+
+.navbar-brand{
+  color: white;
 }
 
 .navhome{
   padding: 0 30px;
-  background: rgba(97, 91, 91, 0.397);
+  background: rgba(97, 91, 91, 0.74);
+}
 
+.card {
+  max-height: 80vh;
+}
+
+.floating {
+  padding-top: 40px;
+  padding-right: 70px;
 }
 
 .card-header:first-child{
@@ -36,7 +53,6 @@ body{
 
 .containerItem{
   padding: 0 30px;
-  height: 80vh;
 }
 
 .scrollable {
@@ -61,16 +77,24 @@ li div.card:hover .hide {
   padding-left: 10px;
 }
 
+.dropdown-toggle{
+  border: none;
+}
+
 /* Landing */
 .containerLanding {
   margin: auto;
+  background-image: url("https://lh3.googleusercontent.com/proxy/3O7LVqb7acl0OB1oESvJq2RZvTk9biyjXAG6itUBT_olPhh57TjNrX_y3kshX26ct-ls4-0R3FRP7sFsrOjge5HqFqWeZ-QwszuSheo61_7NWjwqMKqsu-KgQpHBzYPOG8vzXdTYN4XsS5H5luKJ-HBV5gfMdJnAIE-cTYh3lys1KsKWOZV78fd_O31Vw305Nk6VgyfMg1qbuKuY-iMZ9vi2JftwN_ef8xuDlg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .frame {
+  width: 100%;
+  margin: 20vh auto;
   height: 500px;
   width: 430px;
   background: rgba(255, 255, 255, .45);
-  margin: auto;
   border-radius: 5px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
   overflow: hidden;
@@ -106,7 +130,6 @@ ul {
   text-align: left;
   text-transform: uppercase;
   padding-right: 10px;
-  color: green
 }
 
 .signin-active a {
@@ -120,7 +143,7 @@ ul {
 
 .signin-inactive a {
   padding-bottom: 0;
-  color: rgba(255, 255, 255, .3);
+  color: grey;
   text-decoration: none;
   border-bottom: none;
   cursor: pointer
@@ -137,7 +160,7 @@ ul {
 
 .signup-inactive a {
   padding-bottom: 0;
-  color: rgba(255, 255, 255, .3);
+  color: grey;
   text-decoration: none;
   border-bottom: none;
   cursor: pointer
@@ -145,7 +168,7 @@ ul {
 
 .form-signin {
   width: 430px;
-  height: 375px;
+  height: 300px;
   font-size: 16px;
   font-weight: 300;
   padding-left: 37px;
@@ -192,7 +215,7 @@ ul {
   border-radius: 20px;
   margin-bottom: 20px;
   border: none;
-  background: rgba(255, 255, 255, .7)
+  background: rgba(0, 0, 0, 0.096)
 }
 
 .kanbanImg{

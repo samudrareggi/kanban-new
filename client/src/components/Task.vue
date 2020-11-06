@@ -1,9 +1,9 @@
 <template>
   <li class="card-body">
-    <div class="card">
+    <div style="background: rgba(255, 255, 255, 0.5);" class="card">
       <div class="card-body">
         <h5 class="card-title">{{task.title}}</h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text">{{task.description}}</p>
         <div class="container" :class="{ hide: isActive  }">
           <div class="d-flex justify-content-end">
             <EditTask
