@@ -1,3 +1,8 @@
+body{
+  background-image: url("https://cdn.shopify.com/s/files/1/0285/1316/products/m1906_1s_White-Washed-Brick-Wall-Mural-WallsNeedLove_For-Interior-Walls-9a.jpg?v=1586014100");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .app{
   width: 95%;
   margin: auto;
@@ -5,29 +10,20 @@
 }
 
 .container-app{
-  width: 95%;
+  /* width: 95%; */
   margin: auto;
   box-sizing: border-box;
 }
 
-#navtext {
-  font-size: larger;
-  font-weight: 600;
-  font-family: sans-serif;
-}
+.navhome{
+  padding: 0 30px;
+  background: rgba(97, 91, 91, 0.397);
 
-.board{
-  height: 80vh;
 }
 
 .card-header:first-child{
-  border-radius: 10px 10px 0px 0px;
   text-align: center;
   font-weight: 600;
-}
-
-.card{
-  border-radius: 10px;
 }
 
 .card:hover{
@@ -39,14 +35,20 @@
 }
 
 .containerItem{
-  padding: 10px;
+  padding: 0 30px;
+  height: 80vh;
+}
+
+.scrollable {
+  overflow-x: hidden;
+  max-height: 70vh;
 }
 
 .hide{
   display: none;
 }
 
-.card-body:hover .hide {
+li div.card:hover .hide {
   display: block;
 }
 
@@ -88,7 +90,16 @@
   opacity: 0
 }
 
-li {
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.nav ul{
+  padding: 0 30px;
+}
+
+.nav li {
   padding-left: 10px;
   font-size: 18px;
   display: inline;
@@ -180,9 +191,11 @@ li {
   padding-left: 15px;
   border-radius: 20px;
   margin-bottom: 20px;
-  background: rgba(255, 255, 255, .2)
+  border: none;
+  background: rgba(255, 255, 255, .7)
 }
 
 .kanbanImg{
   width: 100%;
 }
+
