@@ -2,11 +2,11 @@
   <div>
   <!-- Button trigger modal -->
     <div class="text-center">
-      <button class="btn btn-primary badge-pill mb-3" data-toggle="modal" data-target="#addTaskModal">+Add Task</button>
+      <button class="btn btn-primary badge-pill mb-3" data-toggle="modal" :data-target="'#addTaskModal'+category">+Add Task</button>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModal" aria-hidden="true">
+    <div class="modal fade" :id="'addTaskModal'+category" tabindex="-1" :aria-labelledby="'addTaskModal'+category" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -45,17 +45,21 @@ export default {
     return {
       title: "",
       description: "",
+      category: this.addCategory.name
     }
   },
   methods: {
+    // addCat(){
+    //   this.category = this.addCategory.name
+    //   console.log(this.category)
+    // },
     requestAddTask(){
-      // const payload = {
-      //   title: this.title,
-      //   description: this.description,
-      //   cat: this.category.name.toLowerCase()
-      // }
-      // this.$emit("requestAddTask", payload)
-      console.log(this.addCategory)
+      const payload = {
+        title: this.title,
+        description: this.description,
+        category: this.category
+      }
+      console.log(payload)
     }
   }
 }

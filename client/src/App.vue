@@ -12,7 +12,8 @@
       :categories="categories"
       :tasks="tasks"
       @postAddTask="postAddTask"
-      @deleteTask="deleteTask">
+      @deleteTask="deleteTask"
+      @updateCategory="updateCategory">
     </HomePage>
   </div>
 </template>
@@ -153,6 +154,25 @@ export default {
           this.fetchTasks()
         })
         .catch (err => {
+          console.log(err.response.data.error)
+        })
+    },
+    updateCategory(payload){
+      const token = localStorage.getItem("token")
+      axios({
+        url: `/tasks/${payload.id}`,
+        method: "PATCH",
+        headers: {
+          token
+        },
+        data: {
+          category: payload.category
+        }
+      })
+        .then(({data}) => {
+          this.fetchTasks()
+        })
+        .catch(err => {
           console.log(err.response.data.error)
         })
     }

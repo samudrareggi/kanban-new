@@ -2,11 +2,11 @@
   <div>
   <!-- Button trigger modal -->
     <div class="text-center">
-      <a data-toggle="modal" :data-target="this.taskId" href=""><i class="fa fa-edit"></i></a>
+      <button data-toggle="modal" :data-target="taskId" @click="check"><i class="fa fa-edit"></i></button>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" :id="this.taskModal" tabindex="-1" :aria-labelledby="this.idTask" aria-hidden="true">
+    <div class="modal fade" :id="taskModal" tabindex="-1" :aria-labelledby="taskModal" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -16,7 +16,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form @submit.prevent="requestEditTask">
+            <!-- <form @submit.prevent="requestEditTask">
               <div class="form-group">
                 <label for="title-name" class="col-form-label">Title:</label>
                 <input type="text" class="form-control" v-model="title">
@@ -29,7 +29,7 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
-            </form>
+            </form> -->
           </div>
         </div>
       </div>
@@ -50,6 +50,10 @@ export default {
     }
   },
   methods: {
+    check(){
+      console.log(this.taskId)
+      console.log(this.taskModal)
+    },
     requestEditTask(){
       const payload = {
         title: this.title,

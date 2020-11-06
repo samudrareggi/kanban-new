@@ -6,16 +6,19 @@
       </div>
       <div class="scrollable">
         <ul>
-          <Task
-            v-for="task in taskByCategory"
-            :key="task.id"
-            :task="task"
-            @deleteTask="deleteTask">
-          </Task>
+          <draggable :list="taskByCategory" group="task" :move="onMove" :category="category" @end="updateCategory">
+            <Task
+              v-for="task in taskByCategory"
+              :key="task.id"
+              :task="task"
+              :id="task.id"
+              @deleteTask="deleteTask">
+            </Task>
+          </draggable>
         </ul>
       </div>
       <AddTask
-        :addCategory="this.category"
+        :addCategory="category"
         @requestAddTask="requestAddTask">
       </AddTask>
     </div>
@@ -25,11 +28,18 @@
 <script>
 import Task from "./Task"
 import AddTask from "./AddTask"
+import draggable from "vuedraggable"
 
 export default {
   name: "Category",
+  data(){
+    return {
+      currentId: null,
+      updatedCategory: null,
+    }
+  },
   components: {
-    Task, AddTask
+    Task, AddTask, draggable
   },
   props: ["category", "tasks"],
   methods: {
@@ -38,6 +48,17 @@ export default {
     },
     deleteTask(payload){
       this.$emit("deleteTask", payload)
+    },
+    onMove(event){
+      this.currentId = event.draggedContext.element.id
+      this.updatedCategory = event.relatedContext.component.$attrs.category.name
+    },
+    updateCategory(){
+      const payload = {
+        id: this.currentId,
+        category: this.updatedCategory.toLowerCase()
+      }
+      this.$emit("updateCategory", payload)
     }
   },
   computed: {

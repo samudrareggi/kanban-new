@@ -27,7 +27,8 @@
           :category="cat"
           :tasks="tasks"
           @requestAddTask="postAddTask"
-          @deleteTask="deleteTask">
+          @deleteTask="deleteTask"
+          @updateCategory="updateCategory">
         </Category>
       </div>
   </div>
@@ -51,6 +52,9 @@ export default {
     },
     deleteTask(payload){
       this.$emit("deleteTask", payload)
+    },
+    updateCategory(payload){
+      this.$emit("updateCategory", payload)
     }
   }
 }
