@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.hasMany(models.Task, { foreignKey: "userId" })
+      User.belongsTo(models.Organization)
     }
   };
   User.init({
@@ -43,6 +44,12 @@ module.exports = (sequelize, DataTypes) => {
             throw new Error('Password atleast 8 characters or more')
           }
         }
+      }
+    },
+    OrganizationId: {
+      type: DataTypes.INTEGER,
+      validate: {
+        notEmpty: { msg: "Organization cannot be empty!" }
       }
     }
   }, {

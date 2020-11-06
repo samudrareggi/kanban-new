@@ -8,7 +8,8 @@ class UserController {
     const payload = {
       name: req.body.name,
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      OrganizationId: req.body.OrganizationId,
     }
     User.create(payload)
       .then(data => {
@@ -39,7 +40,8 @@ class UserController {
         }
         const access_token = signToken({
           id: data.id,
-          email: data.email
+          email: data.email,
+          name: data.name
         })
         res.status(200).json({ access_token, name: data.name })
       })
@@ -49,7 +51,9 @@ class UserController {
   }
   static googleLogin(req, res, next) {
     const { id_token } = req.body
+    console.log({ id_token })
     let client = new OAuth2Client(process.env.CLIENT_ID)
+    console.log(client)
     let email = ""
     let name = ""
     client.verifyIdToken({

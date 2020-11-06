@@ -15,7 +15,8 @@ class TaskController {
   static postTask(req, res, next) {
     const data = {
       title: req.body.title,
-      category: req.body.category,
+      description: req.body.description,
+      CategoryId: req.body.CategoryId,
       userId: req.loggedInUser.id
     }
     Task.create(data)
@@ -29,9 +30,9 @@ class TaskController {
       })
   }
   static putTaskById(req, res, next) {
-    const { title } = req.body
+    const { title, description } = req.body
 
-    Task.update({ title }, { where: { id: req.params.id }, returning: true })
+    Task.update({ title, description }, { where: { id: req.params.id }, returning: true })
       .then(data => {
         res.status(200).json(data[1][0])
       })
@@ -40,9 +41,9 @@ class TaskController {
       })
   }
   static patchTaskById(req, res, next) {
-    const { category } = req.body
+    const { CategoryId } = req.body
 
-    Task.update({ category }, { where: { id: req.params.id }, returning: true })
+    Task.update({ CategoryId }, { where: { id: req.params.id }, returning: true })
       .then(data => {
         res.status(200).json(data[1][0])
       })
