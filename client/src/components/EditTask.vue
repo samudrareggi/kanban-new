@@ -2,7 +2,12 @@
   <div>
   <!-- Button trigger modal -->
     <div class="text-center">
-      <button data-toggle="modal" :data-target="taskId" @click="check"><i class="fa fa-edit"></i></button>
+      <a data-toggle="modal"
+        :data-target="taskId"
+        data-backdrop="static"
+        data-keyboard="false"
+        @click="changeActive(true)"
+        href=""><i class="fa fa-edit"></i></a>
     </div>
 
     <!-- Modal -->
@@ -11,25 +16,25 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="editModalTitle">Edit Task</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button @click="changeActive(false)" type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <!-- <form @submit.prevent="requestEditTask">
+            <form @submit.prevent="requestEditTask">
               <div class="form-group">
                 <label for="title-name" class="col-form-label">Title:</label>
-                <input type="text" class="form-control" v-model="title">
+                <input required type="text" class="form-control" v-model="title">
               </div>
               <div class="form-group">
                 <label for="description-text" class="col-form-label">Description:</label>
                 <textarea class="form-control" v-model="description"></textarea>
               </div>
               <div class="modal-footer mt-5">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button @click="changeActive(false)" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button @click="changeActive(false)" type="submit" class="btn btn-primary">Submit</button>
               </div>
-            </form> -->
+            </form>
           </div>
         </div>
       </div>
@@ -40,27 +45,26 @@
 <script>
 export default {
   name: "EditTask",
-  props: ["idTask"],
+  props: ["task"],
   data(){
     return {
-      title: "",
-      description: "",
-      taskId: `#addTaskModal${this.idTask}`,
-      taskModal: `addTaskModal${this.idTask}`,
+      title: this.task.title,
+      description: this.task.description,
+      taskId: `#addTaskModal${this.task.id}`,
+      taskModal: `addTaskModal${this.task.id}`,
     }
   },
   methods: {
-    check(){
-      console.log(this.taskId)
-      console.log(this.taskModal)
+    changeActive(payload){
+      this.$emit("changeActive", payload)
     },
     requestEditTask(){
       const payload = {
         title: this.title,
         description: this.description,
+        id: this.task.id
       }
       this.$emit("requestEditTask", payload)
-      console.log(this.addCategory)
     }
   }
 }

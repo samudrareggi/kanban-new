@@ -12,7 +12,8 @@
               :key="task.id"
               :task="task"
               :id="task.id"
-              @deleteTask="deleteTask">
+              @deleteTask="deleteTask"
+              @requestEditTask="requestEditTask">
             </Task>
           </draggable>
         </ul>
@@ -59,6 +60,9 @@ export default {
         category: this.updatedCategory.toLowerCase()
       }
       this.$emit("updateCategory", payload)
+    },
+    requestEditTask(payload){
+      this.$emit("requestEditTask", payload)
     }
   },
   computed: {

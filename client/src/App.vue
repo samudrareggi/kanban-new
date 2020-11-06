@@ -12,6 +12,7 @@
       :categories="categories"
       :tasks="tasks"
       @postAddTask="postAddTask"
+      @postEditTask="postEditTask"
       @deleteTask="deleteTask"
       @updateCategory="updateCategory">
     </HomePage>
@@ -167,6 +168,25 @@ export default {
         },
         data: {
           category: payload.category
+        }
+      })
+        .then(({data}) => {
+          this.fetchTasks()
+        })
+        .catch(err => {
+          console.log(err.response.data.error)
+        })
+    },
+    postEditTask(payload){
+      const token = localStorage.getItem("token")
+      axios({
+        url: `/tasks/${payload.id}`,
+        method: "PUT",
+        headers: {
+          token
+        },
+        data: {
+          title: payload.title
         }
       })
         .then(({data}) => {

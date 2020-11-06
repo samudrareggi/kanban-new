@@ -4,16 +4,17 @@
       <div class="card-body">
         <h5 class="card-title">{{task.title}}</h5>
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        <div class="container hide">
+        <div class="container" :class="{ hide: isActive  }">
           <div class="d-flex justify-content-end">
             <EditTask
-              :idTask="task.id">
+              :task="task"
+              @changeActive="changeActive"
+              @requestEditTask="requestEditTask">
             </EditTask>
             <DeleteTask
               :idTask="task.id"
               @deleteTask="deleteTask">
             </DeleteTask>
-            <a href="#"><i class="fa fa-arrows"></i></a>
           </div>
         </div>
       </div>
@@ -31,10 +32,21 @@ export default {
     EditTask,
     DeleteTask
   },
+  data() {
+    return {
+      isActive: true
+    }
+  },
   props: ["task"],
   methods: {
     deleteTask(payload){
       this.$emit("deleteTask", payload)
+    },
+    changeActive(payload){
+      this.isActive = !payload
+    },
+    requestEditTask(payload){
+      this.$emit("requestEditTask", payload)
     }
   }
 }

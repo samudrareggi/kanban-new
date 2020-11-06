@@ -19,7 +19,7 @@
             <form @submit.prevent="requestAddTask">
               <div class="form-group">
                 <label for="title-name" class="col-form-label">Title:</label>
-                <input type="text" class="form-control" id="title-name" v-model="title">
+                <input required type="text" class="form-control" id="title-name" v-model="title">
               </div>
               <div class="form-group">
                 <label for="description-text" class="col-form-label">Description:</label>
@@ -49,17 +49,13 @@ export default {
     }
   },
   methods: {
-    // addCat(){
-    //   this.category = this.addCategory.name
-    //   console.log(this.category)
-    // },
     requestAddTask(){
       const payload = {
         title: this.title,
         description: this.description,
-        category: this.category
+        category: this.category.toLowerCase()
       }
-      console.log(payload)
+      this.$emit("requestAddTask", payload)
     }
   }
 }
