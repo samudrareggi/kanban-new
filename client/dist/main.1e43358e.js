@@ -8912,7 +8912,7 @@ var _default = {
   data: function data() {
     return {
       params: {
-        client_id: "646679172615-5d22ugthjbnhr9b039k8e6n0gqgkr5j5.apps.googleusercontent.com"
+        client_id: "583047327634-horjov6cbnp0lk1fngee7t3fihj5g3m5.apps.googleusercontent.com"
       },
       renderParams: {
         width: 250,
@@ -19668,7 +19668,7 @@ var _default = {
     },
     postRegister: function postRegister(payload) {
       (0, _axios.default)({
-        url: "register",
+        url: "/register",
         method: "POST",
         data: {
           name: payload.name,
@@ -19853,10 +19853,19 @@ var _default = {
         }
       }).then(function (_ref7) {
         var data = _ref7.data;
+        (0, _sweetalert.default)({
+          title: "Success",
+          icon: "success",
+          buttons: false,
+          timer: 1000
+        });
 
         _this6.fetchTasks();
       }).catch(function (err) {
-        console.log(err.response.data.error);
+        (0, _sweetalert.default)({
+          title: err.response.data.error,
+          icon: "warning"
+        });
       });
     },
     deleteCat: function deleteCat(payload) {
@@ -19874,7 +19883,10 @@ var _default = {
 
         _this7.isLogin();
       }).catch(function (err) {
-        console.log(err.response.data.error);
+        (0, _sweetalert.default)({
+          title: err.response.data.error,
+          icon: "warning"
+        });
       });
     },
     updateCategory: function updateCategory(payload) {
@@ -19959,10 +19971,6 @@ var _default = {
         dangerMode: true
       }).then(function (willDelete) {
         if (willDelete) {
-          (0, _sweetalert.default)("Poof! Your task has been deleted!", {
-            icon: "success"
-          });
-
           _this11.deleteTask(id);
         }
       });
@@ -20112,7 +20120,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "33631" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "32785" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

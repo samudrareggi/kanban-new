@@ -58,7 +58,7 @@ export default {
     },
     postRegister(payload) {
       axios({
-        url: "register",
+        url: "/register",
         method: "POST",
         data: {
           name: payload.name,
@@ -234,10 +234,19 @@ export default {
         },
       })
         .then(({data}) => {
+          swal({
+            title: "Success",
+            icon: "success",
+            buttons: false,
+            timer: 1000,
+          })
           this.fetchTasks()
         })
         .catch (err => {
-          console.log(err.response.data.error)
+          swal({
+            title: err.response.data.error,
+            icon: "warning",
+          })
         })
     },
     deleteCat(payload){
@@ -253,7 +262,10 @@ export default {
           this.isLogin()
         })
         .catch (err => {
-          console.log(err.response.data.error)
+          swal({
+            title: err.response.data.error,
+            icon: "warning",
+          })
         })
     },
     updateCategory(payload){
@@ -332,9 +344,6 @@ export default {
       })
         .then((willDelete) => {
           if (willDelete) {
-            swal("Poof! Your task has been deleted!", {
-              icon: "success",
-            });
             this.deleteTask(id)
           }
         });
